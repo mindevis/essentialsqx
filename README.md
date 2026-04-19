@@ -6,3 +6,6 @@ QX / QM Minecraft mod (Architectury: Fabric + NeoForge). Built and released from
 
 Related: [qm-project](https://github.com/mindevis/qm-project) monorepo (launcher & stack).
 
+## Releases
+
+Pushes to `main` with a `fix:` or `feat:` commit trigger [semantic-release](https://github.com/semantic-release/semantic-release); JARs are attached to GitHub Releases.
