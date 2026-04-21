@@ -60,5 +60,18 @@ public class ConfigManager {
     public int nightDurationTicks = 12000;
     public String nightDurationTicks_msg = "Night duration in ticks (10 min = 12000)";
 
+    /** /qxdump — CSV dumps into world/essentialsqx/dumps/ (see essentialsqx.json) */
+    public boolean dumpEnabled = true;
+    public String dumpEnabled_msg = "Enable /qxdump commands";
+
+    public boolean dumpRequireOp = true;
+    public String dumpRequireOp_msg = "Require permission level 2 (OP) for /qxdump";
+
+    public boolean dumpAllowConsole = true;
+    public String dumpAllowConsole_msg = "Allow dedicated-server console to run /qxdump";
+
+    public int dumpMaxItems = 10000;
+    public String dumpMaxItems_msg = "Maximum rows per CSV file";
+
     public ConfigManager() {}
 }

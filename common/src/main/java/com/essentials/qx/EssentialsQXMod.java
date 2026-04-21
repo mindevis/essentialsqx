@@ -1,5 +1,6 @@
 package com.essentials.qx;
 
+import com.essentials.qx.dump.DumpCommand;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mojang.brigadier.CommandDispatcher;
@@ -218,6 +219,10 @@ public final class EssentialsQXMod {
             mergedConfig.tpaRequestTimeoutSeconds = CONFIG.tpaRequestTimeoutSeconds;
             mergedConfig.dayDurationTicks = CONFIG.dayDurationTicks > 0 ? CONFIG.dayDurationTicks : defaultConfig.dayDurationTicks;
             mergedConfig.nightDurationTicks = CONFIG.nightDurationTicks > 0 ? CONFIG.nightDurationTicks : defaultConfig.nightDurationTicks;
+            mergedConfig.dumpEnabled = CONFIG.dumpEnabled;
+            mergedConfig.dumpRequireOp = CONFIG.dumpRequireOp;
+            mergedConfig.dumpAllowConsole = CONFIG.dumpAllowConsole;
+            mergedConfig.dumpMaxItems = CONFIG.dumpMaxItems > 0 ? CONFIG.dumpMaxItems : defaultConfig.dumpMaxItems;
 
             CONFIG = mergedConfig;
             saveConfig();
@@ -386,6 +391,14 @@ public final class EssentialsQXMod {
         dispatcher.register(LiteralArgumentBuilder.<CommandSourceStack>literal("fly")
             .requires(source -> source.hasPermission(2))
             .executes(EssentialsQXMod::executeFlyCommand));
+
+        dispatcher.register(LiteralArgumentBuilder.<CommandSourceStack>literal("qxdump")
+            .then(LiteralArgumentBuilder.<CommandSourceStack>literal("list")
+                .executes(DumpCommand::executeList))
+            .then(LiteralArgumentBuilder.<CommandSourceStack>literal("minecraft")
+                .executes(DumpCommand::executeMinecraft))
+            .then(arg("modid", StringArgumentType.word())
+                .executes(ctx -> DumpCommand.executeMod(ctx, StringArgumentType.getString(ctx, "modid")))));
     }
 
     private static int executeSpawnCommand(CommandContext<CommandSourceStack> context) {
