@@ -18,7 +18,7 @@
 ### Bug Fixes
 
 * **mods:** pin release jars to mod_version, clean before build, bump patch ([724db94](https://github.com/mindevis/qm-project/commit/724db948caa7f2607e8b88b58789c469970809e7))
-* **mods:** semver mod_version for all QX Architectury mods ([abc0f13](https://github.com/mindevis/qm-project/commit/abc0f13d23f57936c554a8baa5be5776305663c6))
+* **mods:** semver mod_version for all QX mods ([abc0f13](https://github.com/mindevis/qm-project/commit/abc0f13d23f57936c554a8baa5be5776305663c6))
 
 ## [1.0.3](https://github.com/mindevis/qm-project/compare/essentialsqx-v1.0.2...essentialsqx-v1.0.3) (2026-04-19)
 

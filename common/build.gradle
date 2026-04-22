@@ -1,9 +1,0 @@
-dependencies {
-	modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-	modApi "dev.architectury:architectury:${rootProject.architectury_api_version}"
-	implementation "com.google.code.gson:gson:2.10.1"
-}
-
-architectury {
-	common("fabric", "neoforge")
-}

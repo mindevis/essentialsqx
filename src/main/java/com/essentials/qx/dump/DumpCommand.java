@@ -3,7 +3,7 @@ package com.essentials.qx.dump;
 import com.essentials.qx.ConfigManager;
 import com.essentials.qx.EssentialsQXMod;
 import com.mojang.brigadier.context.CommandContext;
-import dev.architectury.platform.Platform;
+import net.neoforged.fml.ModList;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -97,7 +97,7 @@ public final class DumpCommand {
         }
         MinecraftServer server = source.getServer();
         server.execute(() -> {
-            if (!vanillaOnly && !Platform.isModLoaded(modid)) {
+            if (!vanillaOnly && !ModList.get().isLoaded(modid)) {
                 source.sendFailure(msg("Мод '" + modid + "' не найден"));
                 return;
             }

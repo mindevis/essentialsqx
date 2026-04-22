@@ -7,4 +7,4 @@ alwaysApply: true
 
 - **`VERSION`** (semver, one line) must match **`mod_version`** in **`gradle.properties`**.
 - On meaningful changes: update **`CHANGELOG.md`**, bump **`VERSION`** / **`mod_version`**, **commit**, **`git push`**, annotated tag **`vX.Y.Z`**, **`git push origin vX.Y.Z`**.
-- **Architectury repos:** CI must run both **`:fabric:build`** and **`:neoforge:build`**; release on **`v*`** should attach both JAR artifacts.
+- **CI:** run **`./gradlew build`** (NeoForge userdev). Release on **`v*`** should attach **`build/libs/*-neoforge-*.jar`**.

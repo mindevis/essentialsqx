@@ -24,7 +24,7 @@ module.exports = {
       '@semantic-release/exec',
       {
         publishCmd:
-          'chmod +x gradlew && ./gradlew :common:clean :fabric:clean :neoforge:clean :common:build :fabric:build :neoforge:build --no-daemon && bash scripts/collect-release-jars.sh',
+          'chmod +x gradlew && ./gradlew clean build --no-daemon && bash scripts/collect-release-jars.sh',
       },
     ],
     [
